@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cryptofollow-proxy
+  namespace: cryptofollow-dev
+  labels:
+    app: cryptofollow-proxy
+spec:
+  selector:
+    matchLabels:
+      name: cryptofollow-proxy-pod
+      app: cryptofollow-proxy
+  replicas: 1
+  revisionHistoryLimit: 0
+  template:
+    metadata:
+      name: cryptofollow-proxy-pod
+      labels:
+        name: cryptofollow-proxy-pod
+        app: cryptofollow-proxy
+    spec:
+      containers:
+        - name: cryptofollow-proxy
+          image: jcdev.online:32000/cryptofollow-proxy
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          # resources:
+          #   requests:
+          #     memory: '200Mi'
+          #     cpu: '100m'
+          #   limits:
+          #     memory: '500Mi'
+          #     cpu: '200m'

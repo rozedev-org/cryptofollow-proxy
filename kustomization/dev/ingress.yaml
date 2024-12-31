@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: cryptofollow-dev
+  name: cryptofollow-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: lets-encrypt
+spec:
+  tls:
+    - hosts:
+        - dev.cryptofollow.cloud
+      secretName: jcdev-online-ingress-tls
+  rules:
+    - host: dev.cryptofollow.cloud
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: cryptofollow-proxy-svc
+                port:
+                  number: 80
