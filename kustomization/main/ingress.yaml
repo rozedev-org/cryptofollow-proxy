@@ -1,17 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  namespace: cryptofollow-dev
+  namespace: cryptofollow-main
   name: cryptofollow-ingress
   annotations:
     cert-manager.io/cluster-issuer: lets-encrypt
 spec:
   tls:
     - hosts:
-        - dev.cryptofollow.cloud
+        - cryptofollow.cloud
       secretName: cryptofollow-cloud-ingress-tls
   rules:
-    - host: dev.cryptofollow.cloud
+    - host: cryptofollow.cloud
       http:
         paths:
           - path: /
