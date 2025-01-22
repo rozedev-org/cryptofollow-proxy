@@ -8,10 +8,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - cryptofollow.cloud
+        - wwww.cryptofollow.cloud
       secretName: cryptofollow-cloud-ingress-tls
   rules:
-    - host: cryptofollow.cloud
+    - host: www.cryptofollow.cloud
       http:
         paths:
           - path: /
