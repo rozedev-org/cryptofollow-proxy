@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cryptofollow-proxy
-  namespace: cryptofollow-dev
+  namespace: cryptofollow-main
   labels:
     app: cryptofollow-proxy
 spec:
@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: cryptofollow-proxy
-          image: cryptofollow.cloud:32000/cryptofollow-proxy-dev
+          image: cryptofollow.cloud:32000/cryptofollow-proxy-main
           imagePullPolicy: Always
           ports:
             - containerPort: 80
